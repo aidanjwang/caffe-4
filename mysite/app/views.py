@@ -15,30 +15,28 @@ def create_order(request):
     else:
         itemurl = request.POST['itemurl']
         # would use API
-        # if itemurl == "https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/014200068X/":
-        name = "Cannery Row: (Centennial Edition) Paperback – Deckle Edge, February 5, 2002"
-        picture = "https://images-na.ssl-images-amazon.com/images/I/51pKtoV%2Bd2L._SX332_BO1,204,203,200_.jpg"
-        asin = "014200068X"
-        units = 1
-        price = 13.89
-
-        megaOrder = MegaOrder(name=name, link=itemurl, picture=picture, asin=asin, units=units, price=price)
-        megaOrder.save()
-
+        if itemurl.startswith("https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/014200068X/"):
+            name = "Cannery Row: (Centennial Edition) Paperback – Deckle Edge, February 5, 2002"
+            picture = "https://images-na.ssl-images-amazon.com/images/I/51pKtoV%2Bd2L._SX332_BO1,204,203,200_.jpg"
+            asin = "014200068X"
+            units = 1
+            price = 13.89
+            description = "Steinbeck's tough yet charming portrait of people on the margins of society, dependant on one another for both physical and emotional survival"
+        if MegaOrder.orders.filter(asin=asin).count() == 0:
+            megaOrder = MegaOrder(name=name, link=itemurl, picture=picture, asin=asin, units=units, price=price, description=description)
+            megaOrder.save()
+        # m = MegaOrder.orders.filter(asin=asin)
+    
         return redirect("order-details", asin=asin)
-<<<<<<< HEAD
         # url = reverse('app/order-details', kwargs={'name': name, 'picture': picture, 'price': price})
         # return HttpResponseRedirect(url)
-        return render(request, 'order-details.html')
+        # return render(request, 'order-details.html')
     # template = loader.get_template("app/order-details.html")
     # context = {'name': name; 'picture': picture; 'price': price}
     # return redirect(template.render(context, request))
     '''
         return HttpResponse("post")
 '''
-=======
->>>>>>> 54bd962f1410f846f15b00035fed1efa7d913bd2
-
 
 def order_details(request, asin):
     if request.method == "GET":
