@@ -80,14 +80,13 @@ def check_order(order):
     mini_orders = order.MiniOrder_set.all()
     total_units = sum([mini_order.units for mini_order in mini_orders])
     if total_units == order.units:
-        for mini_order in mini_orders:
-            with open(static.emailtext) as fp:
-                msg = EmailMessage()
-                msg.set_content(fp.read())
-            msg['Subject'] = "CAFFE 4: Your order group is ready!"
-            msg['From'] = "therealcaffe4@gmail.com"
-            msg['To'] = mini_order.email
-            s = smtplib.SMTP('localhost')
-            s.send_message(msg)
-            s.quit()
+        with open(static.emailtext) as fp:
+            msg = EmailMessage()
+            msg.set_content(fp.read())
+        msg['Subject'] = "CAFFE 4: Your order group is ready!"
+        msg['From'] = "therealcaffe4@gmail.com"
+        msg['To'] = ", ".join([mini_order.email for mini_order in mini_orders])
+        s = smtplib.SMTP('localhost')
+        s.send_message(msg)
+        s.quit()
 
