@@ -47,6 +47,10 @@ def order_details(request):
         return render(request, 'order-details.html')
 
 
+def complete_order(request):
+    return HttpResponse("complete") # TODO
+
+
 def check_order():
     return HttpResponse("Check order") # TODO
 
