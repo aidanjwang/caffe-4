@@ -108,7 +108,8 @@ codedoor/bin/
 *.pyc
 __pycache__/
 media
-.sqlite3
+*.sqlite3
+mysite/app/migrations
 
 */static/admin
 
