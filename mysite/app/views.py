@@ -6,7 +6,8 @@ from django.http import HttpResponseRedirect
 
 
 def home(request):
-    return render(request, 'home.html')
+    all_mega_orders = MegaOrder.objects.all()
+    return render(request, 'home.html', {"all_mega_orders": all_mega_orders})
 
 
 def create_order(request):
