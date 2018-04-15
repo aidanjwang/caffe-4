@@ -25,7 +25,7 @@ def create_order(request):
 
 def order_details(request):
     if request.method == "GET":
-        return HttpResponse("Get request.") # TODO
+        return render(request, 'order-details.html')
     else:
         return HttpResponse("Post request.") # TODO
 
