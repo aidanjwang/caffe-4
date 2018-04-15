@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db import models
 from app.models import MegaOrder, MiniOrder
 import smtplib
 from email.message import EmailMessage
@@ -61,10 +62,10 @@ def order_details(request, asin):
         mega_order = get_object_or_404(MegaOrder, asin=asin)
         return render(request, 'order-details.html', {"mega_order": mega_order})
     else:
-        order = request.POST['order']
+        order = get_object_or_404(MegaOrder, asin=asin)
         name = request.POST['name']
         email = request.POST['email']
-        units = request.POST['units']
+        units = request.POST.get('units')
         mini_order = MiniOrder(order=order, name=name, email=email, units=units)
         mini_order.save()
         check_order(order)
