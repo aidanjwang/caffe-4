@@ -6,24 +6,41 @@
 </head>
 <body>
     <a href="{% url 'create-order' %}">
-        <div id="">
+        <!-- <div id="">
             Create new order
-        </div>
+        </div> -->
+        <button class="btn btn-lg btn-primary btn-block">Create a new order!</button>
     </a>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;"></div>
     {% for mega_order in all_mega_orders %}
-    <a href="{% url 'order-details' asin=mega_order.asin %}">
-        <div>
-            {{ mega_order.name }}
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="{{ mega_order.picture }}">
+                <div class="caption">
+                    <h4>{{ mega_order.name }}</h4>
+                </div>
+                <p>
+                    <a href="" class="btn btn-primary">More Info</a>
+                </p>
+            </div>
         </div>
-    </a>
-    <div class="picture" style="background-image: url('{{ mega_order.picture }}');">
-    </div>
-    <div>
-        {{ mega_order.description }}
-    </div>
+        <!-- <div class=col-md-6>
+            <a href="{% url 'order-details' asin=mega_order.asin %}">
+                <div>
+                    {{ mega_order.name }}
+                </div>
+            </a>
+            <div class="picture" style="background-image: url('{{ mega_order.picture }}');">
+                </div>
+                <div>
+                    {{ mega_order.description }}
+                </div>
+        </div> -->
+    
     {% empty %}
     <p> No orders listed. Add your own! </p>
     {% endfor %}
+    </div>
 </body>
 
 {% endblock content %}
