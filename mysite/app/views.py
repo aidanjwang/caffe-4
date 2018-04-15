@@ -46,7 +46,8 @@ def order_details(request, asin):
         mini_order = MiniOrder(order=order, name=name, email=email, units=units)
         mini_order.save()
         check_order()
-        return render(request, 'complete-order.html')
+        # return render(request, 'complete-order.html')
+        return render(request, 'order-details.html')
 
 
 def complete_order(request):
@@ -56,3 +57,4 @@ def complete_order(request):
 def check_order():
     return HttpResponse("Check order") # TODO
 
+'''
