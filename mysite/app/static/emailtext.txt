@@ -1,0 +1,3 @@
+Hello, your bulk order is ready!
+
+- Caffe 4

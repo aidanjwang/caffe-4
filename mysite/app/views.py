@@ -1,9 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from app.models import MegaOrder, MiniOrder
-from django.urls import reverse
-from django.http import HttpResponseRedirect
-
+import smtplib
+from email.message import EmailMessage
 
 def home(request):
     all_mega_orders = MegaOrder.objects.all()
@@ -36,7 +35,7 @@ def create_order(request):
             megaOrder = MegaOrder(name=name, link=itemurl, picture=picture, asin=asin, units=units, price=price, description=description)
             megaOrder.save()
         # m = MegaOrder.orders.filter(asin=asin)
-    
+
         return redirect("order-details", asin=asin)
         # url = reverse('app/order-details', kwargs={'name': name, 'picture': picture, 'price': price})
         # return HttpResponseRedirect(url)
@@ -57,8 +56,8 @@ def order_details(request, asin):
         units = request.POST['units']
         mini_order = MiniOrder(order=order, name=name, email=email, units=units)
         mini_order.save()
-        check_order()
-        # return render(request, 'complete-order.html')
+        check_order(order)
+
         return redirect("complete-order")
 
 
@@ -66,5 +65,18 @@ def complete_order(request):
     return render(request, "complete-order.html")
 
 
-def check_order():
-    return HttpResponse("Check order") # TODO
+def check_order(order):
+    mini_orders = order.MiniOrder_set.all()
+    total_units = sum([mini_order.units for mini_order in mini_orders])
+    if total_units == order.units:
+        for mini_order in mini_orders:
+            with open(static.emailtext) as fp:
+                msg = EmailMessage()
+                msg.set_content(fp.read())
+            msg['Subject'] = "CAFFE 4: Your order group is ready!"
+            msg['From'] = "therealcaffe4@gmail.com"
+            msg['To'] = mini_order.email
+            s = smtplib.SMTP('localhost')
+            s.send_message(msg)
+            s.quit()
+
