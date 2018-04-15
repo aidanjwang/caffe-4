@@ -9,8 +9,14 @@
       <div class="col-lg-12">
           <div class="content">
               <h2>Thank you for submitting your order!</h2>
-              <a href="{% url 'create-order' %}">Create new order</a>
-              <a href="{% url 'home' %}">Back to home page</a>
+
+
+              <form action="/create-order">
+                <input type="submit" value="Make another order"/>
+              </form>
+              <form action="/home">
+                <input type="submit" value="Back to home page"/>
+              </form>
 <!--
               <h3>To make another order or check on the status of your order:</h3>
               <form action="http://amazon.com">
@@ -20,6 +26,17 @@
           </div>
       </div>
   </div>
+<!--
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="content">
+              <h1>Caffe 4</h1>
+              <h3>Find what you have in common with others</h3>
+              <hr>
+            </div>
+      </div>
+  </div>
+-->
 
 </body>
 
