@@ -2,7 +2,6 @@ from django.db import models
 
 
 class MegaOrder(models.Model):
-    orders = models.Manager()
     name = models.CharField(max_length=100)
     link = models.URLField(null=True, blank=True)
     picture = models.URLField(null=True, blank=True)
