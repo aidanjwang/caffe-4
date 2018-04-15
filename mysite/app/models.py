@@ -6,6 +6,7 @@ class MegaOrder(models.Model):
     link = models.URLField(null=True, blank=True)
     picture = models.URLField(null=True, blank=True)
     asin = models.CharField(max_length=100)
+    description = models.CharField(max_length=2000)
     units = models.IntegerField(default=0)
     price = models.FloatField(default=0)
 
