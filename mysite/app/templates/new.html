@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caffe 4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://code.jquery.com/jquery-git2.min.js"></script>
+</head>
+<body>
+    <!-- The Nav bar -->
+    <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Caffe 4</a>
+                </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <% if(!currentUser){ %>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- The Body -->
+    <div class="row">
+        <h1 style="text-align: center">Create a New Order</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/neworder" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Jay Kang">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" placeholder="aidan@berkeley.edu">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="url" name="itemurl" placeholder="https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/...">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="amount" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="date" name="expirationdate" placeholder="10/05/18">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/home">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
