@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
@@ -6,4 +7,7 @@ def home(request):
 
 
 def create_order(request):
-    return HttpResponse("Create order.")
+    if request.method == "GET":
+        return render(request, 'create-order.html')
+    else:
+        return HttpResponse("Post request.")
