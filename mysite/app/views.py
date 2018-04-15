@@ -20,6 +20,6 @@ def order_details(request):
         return HttpResponse("Post request.") # TODO
 
 
-def finish_order(request):
+def finish_order():
     return HttpResponse("Finish order") # TODO
 
