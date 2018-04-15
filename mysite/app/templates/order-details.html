@@ -23,16 +23,34 @@
                     <h4 class="pull-right">${{ mega_order.price }}/unit </h4>
                     <h4><a>Tiger {{ mega_order.name }}</a></h4> <!-- TODO: -->
                     <p>This is a tiger family. They like to eat zebras. {{ mega_order.description }}</p> <!-- TODO: -->
-                    <!-- <p>
-                        <em>Submitted By <%= campground.author.username %></em>
-                    </p>
-                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
-                        <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit Campground</a>
-                    <% } %> -->
                 </div>
+            </div>
+            <div class="well">
+                <!-- <h3></h3> -->
+                <form action="/order-details" method="POST"> {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="name">Name</label>
+                            <input class="form-control" type="text" name="name" placeholder="Jay Kang">
+                        </div>
+                        <div class="form-group col-md-8">
+                                <label for="email">Email</label>
+                            <input class="form-control" type="email" name="email" placeholder="aidan@berkeley.edu">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="miniunits">How many units would you like to purchase?</label>
+                            <input class="form-control" type="number" name="miniunits" placeholder="5">
+                        </div>
+                        <div class="text-right form-group">
+                            <input type="submit" value="Submit">
+                            <!-- <a class="btn btn-success" >Submit Order!</a> -->
+                        </div>   
+                    </div>   
+                </form>
             </div>
         </div>
     </div>
+    
     </body>
 </html>
 {% endblock content %}
