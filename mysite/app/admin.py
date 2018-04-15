@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import MegaOrder, MiniOrder
+
+admin.site.register(MegaOrder)
+admin.site.register(MiniOrder)
