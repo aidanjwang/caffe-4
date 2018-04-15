@@ -25,8 +25,14 @@
                 <div class="caption">
                     <h4>{{ mega_order.name }}</h4>
                 </div>
+                <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                        aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                          3{{ mega_order.units}} more to complete the order!
+                        </div>
+                      </div>
                 <p>
-                    <a href="" class="btn btn-primary">More Info</a>
+                    <a href="/order-details/{{mega_order.asin}}" class="btn btn-primary">More Info</a>
                 </p>
             </div>
         </div>
