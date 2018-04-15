@@ -5,7 +5,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    <a href="{% url 'create-order' %}">Create new order</a>
+    <a href="{% url 'create-order' %}">
+        <div id="">
+            Create new order
+        </div>
+    </a>
     {% for mega_order in all_mega_orders %}
     <a href="{% url 'order-details' asin=mega_order.asin %}">
         <div>
