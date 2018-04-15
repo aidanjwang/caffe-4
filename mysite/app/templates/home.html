@@ -6,12 +6,17 @@
     <link rel="stylesheet" href="../static/css/landing.css">
 </head>
 <body>
+    
+        <h1>Caffe 4</h1>
+        <h3>Find what you have in common with others</h3>
+        <!-- <hr> -->
     <a href="{% url 'create-order' %}">
         <!-- <div id="">
             Create new order
         </div> -->
         <button class="btn btn-lg btn-primary btn-block">Create a new order!</button>
     </a>
+    <hr>
     <div class="row text-center" style="display:flex; flex-wrap: wrap;"></div>
     {% for mega_order in all_mega_orders %}
         <div class="col-md-4 col-sm-6">
