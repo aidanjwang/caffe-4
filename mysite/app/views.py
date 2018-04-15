@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Hello, world.")
+def home(request):
+    return HttpResponse("Homepage.")
 
+
+def create_order(request):
+    return HttpResponse("Create order.")
