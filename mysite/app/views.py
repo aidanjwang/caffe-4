@@ -15,17 +15,18 @@ def create_order(request):
     else:
         itemurl = request.POST['itemurl']
         # would use API
-        if itemurl == "https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/014200068X/":
-            name = "Cannery Row: (Centennial Edition) Paperback – Deckle Edge, February 5, 2002"
-            picture = "https://images-na.ssl-images-amazon.com/images/I/51pKtoV%2Bd2L._SX332_BO1,204,203,200_.jpg"
-            asin = "014200068X"
-            units = 1
-            price = 13.89
+        # if itemurl == "https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/014200068X/":
+        name = "Cannery Row: (Centennial Edition) Paperback – Deckle Edge, February 5, 2002"
+        picture = "https://images-na.ssl-images-amazon.com/images/I/51pKtoV%2Bd2L._SX332_BO1,204,203,200_.jpg"
+        asin = "014200068X"
+        units = 1
+        price = 13.89
 
         megaOrder = MegaOrder(name=name, link=itemurl, picture=picture, asin=asin, units=units, price=price)
         megaOrder.save()
 
         return redirect("order-details", asin=asin)
+<<<<<<< HEAD
         # url = reverse('app/order-details', kwargs={'name': name, 'picture': picture, 'price': price})
         # return HttpResponseRedirect(url)
         return render(request, 'order-details.html')
@@ -35,6 +36,8 @@ def create_order(request):
     '''
         return HttpResponse("post")
 '''
+=======
+>>>>>>> 54bd962f1410f846f15b00035fed1efa7d913bd2
 
 
 def order_details(request, asin):
@@ -50,7 +53,7 @@ def order_details(request, asin):
         mini_order.save()
         check_order()
         # return render(request, 'complete-order.html')
-        return render(request, 'order-details.html')
+        return redirect("complete-order")
 
 
 def complete_order(request):
