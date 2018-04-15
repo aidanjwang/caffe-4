@@ -18,11 +18,11 @@
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
-                <img class="img-responsive" src="{{ picture }}">
+                <img class="img-responsive" src="{{ mega_order.picture }}">
                 <div class="caption-full">
-                    <h4 class="pull-right">$9.00/unit</h4>
-                    <h4><a>Tiger {{ link.name }}</a></h4> <!-- TODO: -->
-                    <p>This is a tiger family. They like to eat zebras. {{ link.description }}</p> <!-- TODO: -->
+                    <h4 class="pull-right">${{ mega_order.price }}/unit </h4>
+                    <h4><a>Tiger {{ mega_order.name }}</a></h4> <!-- TODO: -->
+                    <p>This is a tiger family. They like to eat zebras. {{ mega_order.description }}</p> <!-- TODO: -->
                     <!-- <p>
                         <em>Submitted By <%= campground.author.username %></em>
                     </p>
