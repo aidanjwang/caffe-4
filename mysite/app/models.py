@@ -4,6 +4,8 @@ from django.db import models
 class MegaOrder(models.Model):
     name = models.CharField(max_length=100)
     link = models.URLField(null=True, blank=True)
+    picture = models.URLField(null=True, blank=True)
+    asin = models.CharField(max_length=100)
     units = models.IntegerField(default=0)
     price = models.FloatField(default=0)
 
