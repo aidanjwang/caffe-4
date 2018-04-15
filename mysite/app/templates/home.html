@@ -3,6 +3,7 @@
 {% block content %}
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="../static/css/landing.css">
 </head>
 <body>
     <a href="{% url 'create-order' %}">
@@ -13,7 +14,7 @@
     </a>
     <div class="row text-center" style="display:flex; flex-wrap: wrap;"></div>
     {% for mega_order in all_mega_orders %}
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-4 col-sm-6">
             <div class="thumbnail">
                 <img src="{{ mega_order.picture }}">
                 <div class="caption">

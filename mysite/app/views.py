@@ -68,7 +68,7 @@ def order_details(request, asin):
         units = request.POST.get('units')
         mini_order = MiniOrder(order=order, name=name, email=email, units=units)
         mini_order.save()
-        check_order(order)
+        # check_order(order)
 
         return redirect("complete-order")
 
