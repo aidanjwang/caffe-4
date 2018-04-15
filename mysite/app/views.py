@@ -13,7 +13,7 @@ def create_order(request):
     if request.method == "GET":
         return render(request, 'create-order.html')
     else:
-        itemurl = request.POST['itemurl']
+        itemurl = request.POST.get['itemurl']
         # would use API
         if itemurl == "https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/014200068X/":
             name = "Cannery Row: (Centennial Edition) Paperback – Deckle Edge, February 5, 2002"
