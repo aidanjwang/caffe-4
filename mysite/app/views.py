@@ -63,7 +63,7 @@ def order_details(request, asin):
 
 
 def complete_order(request):
-    return HttpResponse("complete") # TODO
+    return render(request, "complete-order.html")
 
 
 def check_order():
