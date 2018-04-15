@@ -30,6 +30,8 @@ def create_order(request):
     # template = loader.get_template("app/order-details.html")
     # context = {'name': name; 'picture': picture; 'price': price}
     # return redirect(template.render(context, request))
+    '''
+        return HttpResponse("post")
 
 
 def order_details(request):
@@ -54,3 +56,4 @@ def complete_order(request):
 def check_order():
     return HttpResponse("Check order") # TODO
 
+'''

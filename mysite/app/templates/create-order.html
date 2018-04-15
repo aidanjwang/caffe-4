@@ -38,8 +38,7 @@
                 <h1>Caffe 4</h1>
                 <h3>Find what you have in common with others</h3>
                 <hr>
-                <form action="/create-order" method="POST">
-                    <!-- Something here is wrong -->
+                <form action="/create-order" method="POST"> {% csrf_token %}
                     <div class="form-group">
                         <input class="form-control" type="url" name="itemurl" placeholder="https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/...">
                     </div>
