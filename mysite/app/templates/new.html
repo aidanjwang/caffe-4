@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="row">
+        <h1 style="text-align: center">Create a New Order</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/neworder" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Jay Kang">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" placeholder="aidan@berkeley.edu">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="url" name="itemurl" placeholder="https://www.amazon.com/Cannery-Row-Centennial-John-Steinbeck/dp/...">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" name="amount" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="date" name="expirationdate" placeholder="10/05/18">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/home">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
