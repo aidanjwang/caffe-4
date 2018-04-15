@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-# from mysite.app.models import MegaOrder, MiniOrder
+from app.models import MegaOrder, MiniOrder
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
@@ -43,7 +43,8 @@ def order_details(request):
         mini_order = MiniOrder(order=order, name=name, email=email, units=units)
         mini_order.save()
         check_order()
-        return render(request, 'complete-order.html')
+        # return render(request, 'complete-order.html')
+        return render(request, 'order-details.html')
 
 
 def check_order():
