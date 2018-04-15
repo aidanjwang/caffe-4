@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<html lang="en">
+<head>
+</head>
+<body>
+    <!-- The Body -->
+    <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Caffe 4</p>
+                <div class="list-group">
+                    <li class="list-group-item active">Order 1</li>
+                    <li class="list-group-item">Order 2</li>
+                    <li class="list-group-item">Order 3</li>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="{{ order.image }}">
+                    <div class="caption-full">
+                        <h4 class="pull-right">$9.00/night</h4>
+                        <h4><a>{{ order.name }}</a></h4>
+                        <p>{{ order.description }}</p>
+                        <!-- <p>
+                            <em>Submitted By <%= campground.author.username %></em>
+                        </p>
+                        <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit Campground</a>
+                        <% } %> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock content %}
