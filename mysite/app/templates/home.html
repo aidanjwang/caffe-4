@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- TODO -->
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    {% for mega_order in all_mega_orders %}
+    <a href="{% url 'order-details' asin=mega_order.asin %}">
+        <div>
+            {{ mega_order.name }}
+        </div>
+    </a>
+    <div class="picture" style="background-image: url('{{ mega_order.picture }}');">
+    </div>
+    <div>
+        {{ mega_order.description }}
+    </div>
+    {% empty %}
+    <p> No orders listed. Add your own! </p>
+    {% endfor %}
+</body>
+
 {% endblock content %}
